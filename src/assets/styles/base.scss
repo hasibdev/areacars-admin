@@ -1,0 +1,86 @@
+@import "./scss/variables";
+@import "./scss/mixins";
+
+@import "./scss/overrides";
+@import "./scss/utils";
+
+@import url(#{$font-url});
+
+:root {
+   --font-primary: #{$primary-font};
+   --color-primary: #{$primary-color};
+   --color-dark: #{$dark-color};
+   --color-heading: #{$dark-color};
+   --color-text: #{$text-color};
+   --color-light-grey: #{$light-grey-color};
+   --color-light-grey-2: #{$light-grey-color-2};
+   --color-grey: #{$grey-color};
+   --color-error: #{$error-color};
+   --color-success: #{$success-color};
+   --color-white: #{$white-color};
+   --color-blue: #{$blue-color};
+}
+
+*,
+*::before,
+*::after {
+   box-sizing: border-box;
+   margin: 0;
+   position: relative;
+   font-weight: normal;
+}
+
+html {
+   scroll-behavior: smooth;
+   font-size: 16px;
+
+   @include responsive-max("sm") {
+      font-size: 15px;
+   }
+}
+
+body {
+   min-height: 100vh;
+   color: var(--color-text);
+   background: var(--color-white);
+   transition: color 0.3s, background-color 0.3s;
+   line-height: 1.6;
+   font-family: var(--font-primary);
+   overflow-x: hidden;
+   text-rendering: optimizeLegibility;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+}
+
+p {
+   margin-bottom: 0;
+}
+
+ul {
+   list-style: none;
+   padding: 0;
+   margin: 0;
+}
+
+img {
+   max-width: 100%;
+   height: auto;
+}
+
+hr {
+   background-color: #a3a3a3;
+}
+
+h6 {
+   color: #333;
+}
+
+input:focus::placeholder {
+   color: transparent;
+}
+
+.borderd-content {
+   border: 1px solid #ddd;
+   padding: 1rem;
+   border-radius: 5px;
+}

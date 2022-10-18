@@ -1,0 +1,64 @@
+<script setup>
+import { computed } from 'vue'
+import _ from 'lodash'
+
+const emit = defineEmits(['update:modelValue'])
+
+const props = defineProps({
+  id: {
+    type: String,
+    default: () => `action_dropdown${_.random(100)}${_.random(100)}`
+  },
+  modelValue: {
+    type: [Boolean, Array, Number],
+    required: true
+  },
+  label: { type: String },
+  value: { type: [String, Number, Boolean] },
+  disabled: { type: Boolean, default: false },
+})
+
+
+const onChange = e => {
+  if (typeof props.modelValue == 'object') {
+    let values = [...props.modelValue]
+
+    if (e.target.checked) values.push(props.value)
+    else values = values.filter(v => v !== props.value)
+
+    emit('update:modelValue', values)
+
+  } else {
+    emit('update:modelValue', e.target.checked)
+  }
+}
+
+const getChecked = computed(() => {
+  if (typeof props.modelValue == 'object') {
+    return props.modelValue?.includes(props.value)
+  }
+
+  return props.modelValue
+})
+
+</script>
+
+<template>
+  <div class="form-check">
+    <input :checked="getChecked" @input="onChange" type="checkbox" :disabled="props.disabled" :id="props.id" class="form-check-input check-round">
+    <label v-if="props.label" class="form-check-label ms-3 label mt-1" :for="props.id" style="font-size: 14px;">
+      {{ props.label }}
+    </label>
+  </div>
+</template>
+
+
+<style lang="scss">
+.form-check-input.check-round {
+  width: 23px;
+  height: 22px;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+}
+</style>

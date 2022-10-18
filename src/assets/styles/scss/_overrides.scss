@@ -1,0 +1,150 @@
+// Bootstrap override
+.form-control:focus,
+.form-select:focus,
+.form-check-input,
+.btn:focus {
+   box-shadow: unset !important;
+}
+
+.form-control,
+.form-select {
+   border-color: #ddd;
+   color: #333;
+   padding: 0.55rem 1rem;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+   /* display: none; <- Crashes Chrome on hover */
+   -webkit-appearance: none;
+   margin: 0;
+   /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type="number"] {
+   -moz-appearance: textfield;
+   /* Firefox */
+}
+
+.form-control,
+.form-select {
+   &.form-control-plaintext {
+      border-color: transparent;
+   }
+}
+
+.form-check-input {
+   border-width: 2px;
+   width: 1.2em;
+   height: 1.2em;
+}
+
+.form-check-input[type="checkbox"] {
+   border-radius: 0.2em;
+}
+
+.form-check-input[type="checkbox"][role="switch"] {
+   border: 0;
+   background-color: #ddd;
+   width: 40px;
+   height: 23px;
+   border-radius: 25px;
+}
+
+// Switch button
+.form-check-input:checked[type="checkbox"][role="switch"] {
+   background-color: #d5e4ff;
+   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%2386b7fe'/%3e%3c/svg%3e");
+}
+
+.form-switch .form-check-input:focus {
+   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba%280, 0, 0, 0.25%29'/%3e%3c/svg%3e");
+}
+
+// Square Checkbox
+.form-check-input:checked[type="checkbox"]:not([role="switch"]) {
+   background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4NCjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgcng9IjQiIGZpbGw9ImJsYWNrIi8+DQo8cGF0aCBkPSJNMTUuMzMzMyA2TDcuOTk5OTYgMTMuMzMzM0w0LjY2NjYzIDEwIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPg0KPC9zdmc+DQo=");
+   background-color: #000;
+   border-color: #000;
+}
+// Round Checkbox
+.form-check-input.check-round:checked[type="checkbox"]:not([role="switch"]) {
+   background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4NCjxwYXRoIGQ9Ik0xMCAyMEMxNS41MjI4IDIwIDIwIDE1LjUyMjggMjAgMTBDMjAgNC40NzcxNSAxNS41MjI4IDAgMTAgMEM0LjQ3NzE1IDAgMCA0LjQ3NzE1IDAgMTBDMCAxNS41MjI4IDQuNDc3MTUgMjAgMTAgMjBaIiBmaWxsPSIjNDZCMjc2Ii8+DQo8cGF0aCBkPSJNMTQgN0w4LjUgMTJMNiA5LjcyNzI3IiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPg0KPC9zdmc+DQo=");
+   background-color: #46b276;
+   border-color: #46b276;
+}
+
+.text-primary {
+   color: $primary-color;
+}
+
+.btn {
+   font-size: 13px;
+   padding: 7px 45px;
+}
+
+.bg-primary,
+.btn-primary {
+   background-color: $primary-color;
+}
+
+.bg-danger,
+.btn-danger {
+   background-color: $error-color;
+}
+
+.btn-danger {
+   border-color: $error-color;
+}
+
+.bg-grey,
+.btn-light {
+   background-color: $grey-color;
+}
+
+.btn-light {
+   border-color: $grey-color;
+}
+
+.btn-dark {
+   background-color: #000;
+}
+
+.text-right {
+   text-align: right !important;
+}
+
+.dropdown-menu {
+   padding: 0;
+}
+
+.modal-header {
+   padding: 1rem 0;
+   margin: 0 1rem;
+   margin-bottom: 0.5rem;
+}
+
+.modal-content {
+   padding: 0.5rem;
+}
+
+.ql-editor {
+   min-height: 400px !important;
+   background-color: #f2f2f2;
+   border-radius: 4px;
+}
+
+.ql-toolbar.ql-snow,
+.ql-container.ql-snow {
+   border: none !important;
+}
+
+// Toast
+.Vue-Toastification__toast {
+   padding: 20px;
+}
+.Vue-Toastification__container.toast__container {
+   .Vue-Toastification__toast--success {
+      background-color: rgba(0, 0, 0, 0.5);
+   }
+}
